@@ -176,7 +176,6 @@ class SignUp extends Component {
             <CheckBox
               title="Museums and galleries"
               checked={museums}
-              fontFamily={generalFont}
               style={generalStyling.checkbox}
               onPress={() => this.setState({ museums: !museums })}
 >>>>>>> 9e990913911bb00550722d7bc870e30940393245
