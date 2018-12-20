@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import {
+  View, Image, StyleSheet, Text,
+} from 'react-native';
+import profileStyles from '../styles/Profile.styles';
 
 const logo = require('../assets/Connections.png');
 
@@ -21,6 +24,7 @@ class AuthLoading extends React.Component {
     return (
       <View style={styles.background}>
         <Image style={styles.logo} source={logo} />
+        <Text style={profileStyles.name}>Vagabonding</Text>
       </View>
     );
   }
