@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import {
+<<<<<<< HEAD
   TextInput, View, Text, ScrollView, KeyboardAvoidingView, Platform,
+=======
+  TextInput, View, Text, ScrollView, KeyboardAvoidingView, Platform
+>>>>>>> 5eb6eed2b92a083f32cddc573e1eda9d85b33cdf
 } from 'react-native';
 import * as firebase from 'firebase';
 import { CheckBox } from 'react-native-elements';
@@ -98,6 +102,7 @@ class SignUp extends Component {
       >
         <ScrollView style={signUpStyles.container}>
           <View style={signUpStyles.mainView}>
+<<<<<<< HEAD
             <H1 style={signUpStyles.title}>Vagabonding</H1>
             <H2 style={generalStyling.h2}>Sign Up</H2>
             {errorMessage && <Text style={{ color: 'red' }}>{errorMessage}</Text>}
@@ -108,6 +113,18 @@ class SignUp extends Component {
               onChangeText={newName => this.setState({ name: newName })}
               value={name}
             />
+=======
+          <H1 style={signUpStyles.title}>Vagabonding</H1>
+          <H2 style={generalStyling.h2}>Sign Up</H2>
+          {errorMessage && <Text style={{ color: 'red' }}>{errorMessage}</Text>}
+          <TextInput
+            placeholder="name"
+            autoCapitalize="words"
+            style={generalStyling.textInput}
+            onChangeText={newName => this.setState({ name: newName })}
+            value={name}
+          />
+>>>>>>> 5eb6eed2b92a083f32cddc573e1eda9d85b33cdf
 
             <TextInput
               placeholder="username"
@@ -218,7 +235,12 @@ class SignUp extends Component {
               </View>
             </View>
           </View>
+<<<<<<< HEAD
         </ScrollView>
+=======
+        </View>
+      </ScrollView>
+>>>>>>> 5eb6eed2b92a083f32cddc573e1eda9d85b33cdf
       </KeyboardAvoidingView>
     );
   }
