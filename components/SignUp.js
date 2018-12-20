@@ -21,9 +21,9 @@ class SignUp extends Component {
     email: '',
     password: '',
     bio: '',
-    age: '',
+    // age: '',
     gender: '',
-    hometown: '',
+    // hometown: '',
     errorMessage: null,
     museums: false,
     bars: false,
@@ -40,37 +40,34 @@ class SignUp extends Component {
       bars,
       restaurants,
       bio,
-      age,
-      hometown,
+      // age,
+      // hometown,
       gender,
     } = this.state;
 
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(currentUser => firestore
+        .collection('users')
+        .doc(currentUser.user.uid)
+        .set({
+          location: { latitude: null, longitude: null },
+          loggedIn: true,
+          interests: { museums, bars, restaurants },
+          name,
+          username,
+          bio,
+          // age,
+          gender,
+          // hometown,
+          radius: 1000,
+        }))
       .then(() => {
-        const { currentUser } = firebase.auth();
-        firestore
-          .collection('users')
-          .doc(currentUser.uid)
-          .set({
-            location: { latitude: null, longitude: null },
-            loggedIn: true,
-            interests: { museums, bars, restaurants },
-            name,
-            username,
-            bio,
-            age,
-            gender,
-            hometown,
-            radius: 1000,
-          });
         this.props.navigation.navigate('mainFlow');
       })
-      .catch((err) => {
-        this.setState({
-          errorMessage: err.message,
-        });
+      .catch(() => {
+        this.props.navigation.navigate('Error');
       });
   };
 
@@ -82,9 +79,9 @@ class SignUp extends Component {
       email,
       password,
       bio,
-      age,
+      // age,
       gender,
-      hometown,
+      // hometown,
       museums,
       bars,
       restaurants,
@@ -109,12 +106,80 @@ class SignUp extends Component {
             value={name}
           />
 
+<<<<<<< HEAD
             <TextInput
               placeholder="username"
               autoCapitalize="words"
               style={generalStyling.textInput}
               onChangeText={newUsername => this.setState({ username: newUsername })}
               value={username}
+=======
+          <TextInput
+            placeholder="username"
+            autoCapitalize="words"
+            style={generalStyling.textInput}
+            onChangeText={newUsername => this.setState({ username: newUsername })}
+            value={username}
+          />
+          <TextInput
+            placeholder="email"
+            autoCapitalize="none"
+            style={generalStyling.textInput}
+            onChangeText={newEmail => this.setState({ email: newEmail })}
+            value={email}
+          />
+          <TextInput
+            placeholder="password"
+            autoCapitalize="none"
+            secureTextEntry
+            style={generalStyling.textInput}
+            onChangeText={(newPassword) => {
+              this.setState({ password: newPassword });
+            }}
+            value={password}
+          />
+          {/* <TextInput
+            placeholder="age"
+            keyboardType="numeric"
+            style={generalStyling.textInput}
+            maxLength={3}
+            onChange={(newAge) => {
+              console.log('age');
+              this.setState({ age: newAge });
+            }}
+            value={age}
+          /> */}
+          {/* <TextInput
+            placeholder="hometown"
+            style={generalStyling.textInput}
+            onChange={(newHometown) => {
+              console.log('hometown');
+              this.setState({ hometown: newHometown });
+            }}
+            value={hometown}
+          /> */}
+          <View style={generalStyling.dropDownChoice}>
+            <Picker
+              mode="dropdown"
+              placeholder="Choose Gender..."
+              selectedValue={gender}
+              onValueChange={newGender => this.setState({ gender: newGender })}
+            >
+              <Picker.Item label="Choose Gender..." disabled />
+              <Picker.Item label="Male" value="Male" />
+              <Picker.Item label="Female" value="Female" />
+              <Picker.Item label="Other" value="Other" />
+            </Picker>
+          </View>
+          <View style={signUpStyles.interests}>
+            <H3 style={generalStyling.h3}>Tick the things that interest you</H3>
+            <CheckBox
+              title="Museums and galleries"
+              checked={museums}
+              fontFamily={generalFont}
+              style={generalStyling.checkbox}
+              onPress={() => this.setState({ museums: !museums })}
+>>>>>>> 9e990913911bb00550722d7bc870e30940393245
             />
             <TextInput
               placeholder="email"
