@@ -3,11 +3,8 @@ import { generalFontBold } from './generalStyling.styles';
 
 const { signUpBackground, darkText } = colorSettings;
 
-<<<<<<< HEAD
 const { signUpBackground, darkText } = colorSettings;
 const generalFontBold = 'Thasadith-Bold';
-=======
->>>>>>> 5eb6eed2b92a083f32cddc573e1eda9d85b33cdf
 
 const signUpStyles = {
   container: {
@@ -36,17 +33,10 @@ const signUpStyles = {
   },
   title: {
     fontFamily: generalFontBold,
-<<<<<<< HEAD
-    fontSize: 35,
-    color: darkText,
-    padding: 30,
-    fontWidth: 'bold',
-=======
     fontSize: 40,
     color: darkText,
     fontWeight: 'bold',
     padding: 30,
->>>>>>> 5eb6eed2b92a083f32cddc573e1eda9d85b33cdf
   },
 };
 
