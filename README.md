@@ -1,6 +1,6 @@
 # NC-Project
 
-## Northcoders Final Project - Nomad Network
+## Northcoders Final Project - Vagabonding
 
 ### Note
 
